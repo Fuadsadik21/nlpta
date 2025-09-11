@@ -1,0 +1,22 @@
+#
+# NLPTA — Curated Amharic Stopwords
+# Generated from Wikipedia corpus
+# Version 1.0
+#
+
+በ
+የ
+ው
+ነው
+ለ
+ስለ
+ም
+አለ
+አይ
+ውስጥ
+ላይ
+በኋላ
+በፊት
+ከ
+እስከ
+በስተ

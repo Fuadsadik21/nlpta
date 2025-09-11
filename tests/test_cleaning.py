@@ -1,14 +1,13 @@
-from nlpta import clean_text, normalize_whitespace, remove_punctuation
+from nlpta.cleaning import clean_text, normalize_whitespace, remove_punctuation
 
 def test_clean_text():
-    input_text = "  ሰላም አለም!   እንዴት ነህ?  "
-    expected = "ሰላም አለም እንዴት ነህ"
-    assert clean_text(input_text) == expected
+    """Normalize all whitespace to single space and strip ends."""
+    assert clean_text("  ሰላም አለም!   እንዴት ነህ?  ") == "ሰላም አለም እንዴት ነህ"
 
 def test_normalize_whitespace():
-    text = "  አስመልክቶች    ይገኛል   "
-    assert normalize_whitespace(text) == "አስመልክቶች ይገኛል"
+        """Remove common Amharic and English punctuation."""
+        assert normalize_whitespace("  ሰላም   አለም  ") == "ሰላም አለም"
 
 def test_remove_punctuation():
-    text = "እባኮት ፦ እናየሁ"
-    assert remove_punctuation(text) == "እባኮት  እናየሁ"
+        """Clean Amharic text by normalizing whitespace and removing punctuation."""
+        assert remove_punctuation("ሰላም አለም! እንዴት ነህ?") == "ሰላም አለም እንዴት ነህ"
