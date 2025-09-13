@@ -22,4 +22,19 @@ def remove_stopwords(tokens, stopwords=None):
     """Remove stopwords from a list of tokens."""
     if stopwords is None:
         stopwords = load_stopwords()
-    return [token for token in tokens if token not in stopwords]
+    # Remove stopwords and also strip stopword prefixes from tokens
+    filtered_tokens = []
+    for token in tokens:
+        # Check for any stopword as a prefix
+        matched_prefix = None
+        for sw in stopwords:
+            if token.startswith(sw) and len(token) > len(sw):
+                matched_prefix = sw
+                break
+        if matched_prefix:
+            stripped = token[len(matched_prefix):]
+            if stripped and stripped not in stopwords:
+                filtered_tokens.append(stripped)
+        elif token not in stopwords:
+            filtered_tokens.append(token)
+    return filtered_tokens
