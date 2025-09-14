@@ -6,7 +6,6 @@ def merge_all_corpora():
         "data/sample_corpus.txt",          # Original Wikipedia
         "data/bbc_sample_corpus.txt",      # BBC headlines
         "data/bbc_full_articles.txt",      # BBC full articles
-        "data/ena_articles.txt",           # ENA articles
         "data/wikipedia_full_corpus.txt"   # Full Wikipedia pages
     ]
     
