@@ -31,9 +31,9 @@ def main():
     # Load corpus
     corpus = []
     with open("data/merged_large_corpus.txt", "r", encoding="utf-8") as f:
-     for line in f:
-        if line.strip():
-            corpus.append(line.strip())
+        for line in f:
+            if line.strip():
+                corpus.append(line.strip())
     
     # Train model
     model = train_word2vec(corpus)
