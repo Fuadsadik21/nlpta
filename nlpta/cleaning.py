@@ -11,8 +11,16 @@ def remove_punctuation(text: str) -> str:
         text = text.replace(p, "")
     return text
 
-def clean_text(text: str) -> str:
-    """Clean Amharic text by normalizing whitespace and removing punctuation."""
+def clean_text(text):
+    """
+    Clean the input text by removing unwanted characters, normalizing whitespace, or applying other preprocessing steps.
+
+    Args:
+        text (str): The input text to clean.
+
+    Returns:
+        str: The cleaned text.
+    """
     text = normalize_whitespace(text)
     text = remove_punctuation(text)
     return text

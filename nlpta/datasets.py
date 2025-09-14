@@ -2,8 +2,13 @@ import os
 
 def load_sample_corpus():
     """
-    Load the sample Amharic corpus downloaded from Wikipedia.
-    Returns a list of strings (one per paragraph).
+    Load the sample Amharic corpus from the data directory.
+
+    Returns:
+        list[str]: A list of paragraphs from the sample corpus.
+
+    Raises:
+        FileNotFoundError: If the sample corpus file does not exist.
     """
     filepath = os.path.join("data", "sample_corpus.txt")
     

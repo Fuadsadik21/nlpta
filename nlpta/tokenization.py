@@ -1,9 +1,14 @@
 import re
 
-def tokenize(text: str) -> list[str]:
+def tokenize(text):
     """
-    Tokenize Amharic text into words.
-    Uses regex to split on whitespace and punctuation.
+    Tokenize the input text into a list of tokens.
+
+    Args:
+        text (str): The input text.
+
+    Returns:
+        list[str]: The list of tokens.
     """
     # Remove punctuation first
     cleaned = re.sub(r'[።፣፤፥፦፧፨፠!?\"\'\(\)\[\]\{\}<>]', '', text)
