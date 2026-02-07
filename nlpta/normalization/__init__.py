@@ -17,10 +17,10 @@ from .punctuation import normalize_punctuation
 from .whitespace import normalize_whitespace
 from .characters import normalize_characters
 from .numerals import normalize_numerals
-from .pipeline import normalize_amharic
+from .pipeline import normalize
 __all__ = [
     "normalize_punctuation",
     "normalize_whitespace",
     "normalize_characters",
     "normalize_numerals",
-    "normalize_amharic"]
+    "normalize"]

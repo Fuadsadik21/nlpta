@@ -3,7 +3,7 @@ from .punctuation import normalize_punctuation
 from .whitespace import normalize_whitespace
 from .numerals import normalize_numerals
 
-def normalize_amharic(text: str) -> str:
+def normalize(text: str) -> str:
     """
     The master normalization pipeline for Amharic text.
     

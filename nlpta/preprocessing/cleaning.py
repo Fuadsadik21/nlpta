@@ -20,4 +20,6 @@ def clean_text(text):
     text = remove_punctuation(text)
     text = clean_text(text)
     return text
-
+def normalize_whitespace(text: str) -> str:
+    """Normalize whitespace by replacing multiple spaces with a single space and trimming."""
+    return re.sub(r'\s+', ' ', text).strip()

@@ -36,3 +36,12 @@ def get_embedding(word, embeddings):
         return embeddings.wv[word]
     except KeyError:
         return None
+
+
+def load_word_embeddings(path=None):
+    """Compatibility wrapper expected by `nlpta` package imports.
+
+    If `path` is provided, it is ignored and the default internal path is used.
+    Returns the loaded Word2Vec model (or raises FileNotFoundError).
+    """
+    return load_embeddings(path)
