@@ -18,7 +18,7 @@ def clean_text(text):
         str: The cleaned text.
     """
     text = remove_punctuation(text)
-    text = clean_text(text)
+    text = normalize_whitespace(text)
     return text
 def normalize_whitespace(text: str) -> str:
     """Normalize whitespace by replacing multiple spaces with a single space and trimming."""

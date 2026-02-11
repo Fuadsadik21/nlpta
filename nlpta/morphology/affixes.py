@@ -14,6 +14,18 @@ These lists are conservative to prevent over-stemming (stripping root letters).
 PREFIXES = ["በ", "ለ", "ከ", "የ", "እንደ", "እስከ"]
 SUFFIXES = ["ኝ", "ህ", "ሽ", "ው", "ች", "ነት"]
 
+def get_all_prefixes() -> list[str]:
+    """
+    Return all known prefix forms used for surface-form detection.
+    """
+    return list(PREFIXES)
+
+def get_all_suffixes() -> list[str]:
+    """
+    Return all known suffix forms used for surface-form detection.
+    """
+    return list(SUFFIXES)
+
 # Prefix role mappings
 PREFIX_ROLES = {
     "በ": ["locative", "instrumental"],
