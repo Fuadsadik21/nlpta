@@ -1,15 +1,19 @@
 import os
 
-def load_stopwords(path):
+def load_stopwords(path=None):
     """
     Load stopwords from a file.
 
     Args:
-        path (str): Path to the stopwords file.
+        path (str | None): Optional path to the stopwords file.
+            Defaults to data/stopwords.txt.
 
     Returns:
         set[str]: A set of stopwords.
     """
+    if path is None:
+        path = os.path.join("data", "stopwords.txt")
+
     if not os.path.exists(path):
         raise FileNotFoundError(
             "Stopwords file not found. Please create data/stopwords.txt"
@@ -24,30 +28,19 @@ def load_stopwords(path):
     
     return stopwords
 
-def remove_stopwords(tokens, stopwords):
+def remove_stopwords(tokens, stopwords=None):
     """
     Remove stopwords from a list of tokens.
 
     Args:
         tokens (list[str]): The list of tokens.
-        stopwords (set[str]): The set of stopwords.
+        stopwords (set[str] | None): The set of stopwords.
+            If None, default stopwords are loaded from disk.
 
     Returns:
         list[str]: The filtered list of tokens.
     """
-    # Remove stopwords and also strip stopword prefixes from tokens
-    filtered_tokens = []
-    for token in tokens:
-        # Check for any stopword as a prefix
-        matched_prefix = None
-        for sw in stopwords:
-            if token.startswith(sw) and len(token) > len(sw):
-                matched_prefix = sw
-                break
-        if matched_prefix:
-            stripped = token[len(matched_prefix):]
-            if stripped and stripped not in stopwords:
-                filtered_tokens.append(stripped)
-        elif token not in stopwords:
-            filtered_tokens.append(token)
-    return filtered_tokens
+    if stopwords is None:
+        stopwords = load_stopwords()
+
+    return [token for token in tokens if token not in stopwords]

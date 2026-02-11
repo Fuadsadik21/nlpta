@@ -1,17 +1,19 @@
 import os
 from gensim.models import Word2Vec
 
-def load_embeddings(path):
+
+def load_embeddings(path=None):
     """
     Load word embeddings from a file.
 
     Args:
-        path (str): Path to the embeddings file.
+        path (str | None): Optional path to the embeddings file.
+            When omitted, data/embeddings.bin is used.
 
     Returns:
         dict: A dictionary mapping words to their embedding vectors.
     """
-    model_path = os.path.join("data", "embeddings.bin")
+    model_path = path or os.path.join("data", "embeddings.bin")
     
     if not os.path.exists(model_path):
         raise FileNotFoundError(
